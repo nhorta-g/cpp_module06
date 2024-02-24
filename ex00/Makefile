@@ -1,4 +1,4 @@
-NAME		=	ex06
+NAME		=	convert
 
 CXX			=	c++
 
