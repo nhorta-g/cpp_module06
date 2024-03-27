@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/09 23:40:31 by nuno              #+#    #+#             */
+/*   Updated: 2024/03/12 14:22:31 by nuno             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScalarConverter.hpp"
 
 void ScalarConverter::convert(std::string literal) {
@@ -25,7 +37,7 @@ void ScalarConverter::convert(std::string literal) {
 	}
 
 	if (len == 1 && !std::isdigit(literal.at(0))) {		//IS CHAR!!!
-		std::cout << std::endl << "CHAR:" << std::endl;
+		//std::cout << std::endl << "CHAR:" << std::endl;
 		char c = literal.at(0);
 		std::cout << "char: " << c << std::endl;
 		std::cout << "int: " << static_cast<int>(c) << std::endl;
@@ -80,7 +92,7 @@ void ScalarConverter::convert(std::string literal) {
 	}
 
 	if (!flo && !dot) {						//IS INT!!!
-		std::cout  << std::endl << "INT:" << std::endl;
+		//std::cout  << std::endl << "INT:" << std::endl;
 		long test = atol(literal.c_str());
 		if (test < std::numeric_limits<int>::min() || test > std::numeric_limits<int>::max()) {
 			std::cerr << "Invalid value. Int overflow limits" << std::endl << std::endl;
@@ -98,7 +110,7 @@ void ScalarConverter::convert(std::string literal) {
 	}
 
 	if (flo && dot) {						//IS FLOAT!!!
-		std::cout << std::endl << "FLOAT:" << std::endl;
+		//std::cout << std::endl << "FLOAT:" << std::endl;
 		float f = strtof(literal.c_str(), NULL);
 		if (f == std::numeric_limits<float>::min() || f == std::numeric_limits<float>::max()) {
 			std::cerr << "Invalid value. Float over limits" << std::endl;
@@ -116,7 +128,7 @@ void ScalarConverter::convert(std::string literal) {
 	}
 
 	if (!flo && dot) {						//IS DOUBLE!!!
-		std::cout << std::endl << "DOUBLE:" << std::endl;
+		//std::cout << std::endl << "DOUBLE:" << std::endl;
 		double d = strtod(literal.c_str(), NULL);
 		if (d == std::numeric_limits<double>::min() || d == std::numeric_limits<double>::max()) {
 			std::cerr << "Invalid value. Double over limits" << std::endl;

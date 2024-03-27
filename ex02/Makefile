@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/09 23:41:15 by nuno              #+#    #+#              #
-#    Updated: 2024/03/09 23:41:16 by nuno             ###   ########.fr        #
+#    Created: 2024/03/09 23:40:05 by nuno              #+#    #+#              #
+#    Updated: 2024/03/11 21:23:58 by nuno             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	serializer
+NAME		=	base
 
 CXX			=	c++
 
 SRCS		=	main.cpp \
-				Serializer.cpp
+				Base.cpp 
 
 CXXFLAGS	=	-Wall -Wextra -Werror -g -std=c++98 #-fsanitize=address
 
