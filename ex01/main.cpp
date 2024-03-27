@@ -13,11 +13,13 @@
 #include "Serializer.hpp"
 
 int main() {
+
 	// Create a Data object
 	Data *data = new Data;
 
 	data->age = 22;
 	data->name = "Nuno";
+
 	// Serialize the pointer to the Data object
 	uintptr_t serializedPtr = Serializer::serialize(data);
 
@@ -26,10 +28,10 @@ int main() {
 
 	// Check if deserialized pointer compares equal to the original pointer
 	if (deserializedPtr == data) {
-		std::cout << "Deserialization successful. Original and deserialized pointers are equal." << std::endl;
+		std::cout << "\nDeserialization successful. Original and deserialized pointers are equal." << std::endl << std::endl;
 		std::cout << "Object age /name: " << deserializedPtr->age << " / " << deserializedPtr->name << std::endl;
 	} else {
-		std::cerr << "Deserialization failed. Original and deserialized pointers are not equal." << std::endl;
+		std::cerr << "Deserialization failed. Original and deserialized pointers are not equal." << std::endl << std::endl;
 	}
 
 	return 0;

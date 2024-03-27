@@ -12,27 +12,48 @@
 
 #include "ScalarConverter.hpp"
 
+//CONSTRUCTORS:
+
+ScalarConverter::ScalarConverter() {}
+
+ScalarConverter::ScalarConverter( const ScalarConverter& src ) {
+  *this = src;
+}
+
+ScalarConverter::~ScalarConverter() {}
+
+ScalarConverter& ScalarConverter::operator=( const ScalarConverter& src ) {
+  if ( this == &src )
+    return *this;
+  return *this;
+}
+
+//CONVERTER:
+
 void ScalarConverter::convert(std::string literal) {
 	int sign = 0;
 	int dot = 0;
 	int flo = 0;
 	size_t len = literal.length();
 
-	if (literal == "inf" || literal == "-inf" || literal == "nan" || literal == "inff" || literal == "-inff" || literal == "nanf") {
-		std::cout << "char" << "Impossible" << std::endl;
-		std::cout << "int" << "Impossible" << std::endl;
+	if (literal == "inf" || literal == "-inf" || literal == "nan" ||
+			literal == "inff" || literal == "-inff" || literal == "nanf") {
+
+		std::cout << "Char: Impossible" << std::endl;
+		std::cout << "Int:  Impossible" << std::endl;
+
 		if (literal == "inf")
-			return (void)(std::cout << "Float: " << static_cast<float>(strtod(literal.c_str(), NULL)) << "f\nDouble: inf" << std::endl << std::endl);
+			std::cout << "Float: " << static_cast<float>(strtod(literal.c_str(), NULL)) << "f\nDouble: inf" << std::endl << std::endl;
 		if (literal == "-inf")
-			return (void)(std::cout << "Float: " << static_cast<float>(strtod(literal.c_str(), NULL)) << "f\nDouble: -inf" << std::endl << std::endl);
+			std::cout << "Float: " << static_cast<float>(strtod(literal.c_str(), NULL)) << "f\nDouble: -inf" << std::endl << std::endl;
 		if (literal == "nan")
-			return (void)(std::cout << "Float: " << static_cast<float>(strtod(literal.c_str(), NULL)) << "f\nDouble: nan" << std::endl << std::endl);
+			std::cout << "Float: " << static_cast<float>(strtod(literal.c_str(), NULL)) << "f\nDouble: nan" << std::endl << std::endl;
 		if (literal == "inff")
-			return (void)(std::cout << "Float: inff\n" << "Double: " << static_cast<double>(strtof(literal.c_str(), NULL))<< std::endl << std::endl);
+			std::cout << "Float: inff\n" << "Double: " << static_cast<double>(strtof(literal.c_str(), NULL))<< std::endl << std::endl;
 		if (literal == "-inff")
-			return (void)(std::cout << "Float: -inff\n" << "Double: " << static_cast<double>(strtof(literal.c_str(), NULL))<< std::endl << std::endl);
+			std::cout << "Float: -inff\n" << "Double: " << static_cast<double>(strtof(literal.c_str(), NULL))<< std::endl << std::endl;
 		if (literal == "nanf")
-			return (void)(std::cout << "Float: nanf\n" << "Double: " <<  static_cast<double>(strtof(literal.c_str(), NULL))<< std::endl << std::endl);
+			std::cout << "Float: nanf\n" << "Double: " <<  static_cast<double>(strtof(literal.c_str(), NULL))<< std::endl << std::endl;
 		exit(0);
 	}
 
@@ -56,9 +77,9 @@ void ScalarConverter::convert(std::string literal) {
 			exit(0);
 		}
 
-		if ((literal.at(0) == '-'))
+		if (literal.at(0) == '-')
 			sign = -1;
-		else if ((literal.at(0) == '+'))
+		else if (literal.at(0) == '+')
 			sign = 1;
 		else if (std::isdigit(literal.at(0)))
 			sign = 0;
