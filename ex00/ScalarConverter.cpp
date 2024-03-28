@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/09 23:40:31 by nuno              #+#    #+#             */
-/*   Updated: 2024/03/12 14:22:31 by nuno             ###   ########.fr       */
+/*   Updated: 2024/03/28 19:15:18 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ ScalarConverter& ScalarConverter::operator=( const ScalarConverter& src ) {
 }
 
 //CONVERTER:
+int is_char(const char &c) {
+	//std::cout << std::endl << "CHAR:" << std::endl;
+	std::cout << "char: " << c << std::endl;
+	std::cout << "int: " << static_cast<int>(c) << std::endl;
+	std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
+	std::cout << "double: " << static_cast<double>(c) << ".0f" << std::endl << std::endl;
+	return(0);
+}
 
 void ScalarConverter::convert(std::string literal) {
 	int sign = 0;
@@ -57,15 +65,8 @@ void ScalarConverter::convert(std::string literal) {
 		exit(0);
 	}
 
-	if (len == 1 && !std::isdigit(literal.at(0))) {		//IS CHAR!!!
-		//std::cout << std::endl << "CHAR:" << std::endl;
-		char c = literal.at(0);
-		std::cout << "char: " << c << std::endl;
-		std::cout << "int: " << static_cast<int>(c) << std::endl;
-		std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
-		std::cout << "double: " << static_cast<double>(c) << ".0f" << std::endl << std::endl;
-		exit(0);
-	}
+	if (len == 1 && !std::isdigit(literal.at(0)))
+		is_char(literal.at(0));
 
 	else {												//IS INT FLOAT OR DOUBLE OR SHIIITT
 		if (literal.at(len - 1) == 'f')
